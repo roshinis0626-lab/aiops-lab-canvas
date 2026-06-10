@@ -1,5 +1,14 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import { Phone, Mail, MapPin, Zap } from "lucide-react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "../components/ui/dialog";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -10,7 +19,10 @@ export const Route = createFileRoute("/")({
         content:
           "Hands-on AIOps Course by Jeevi Academy. Master observability, anomaly detection, event correlation, predictive maintenance, auto-remediation & self-healing infrastructure with local VirtualBox labs.",
       },
-      { property: "og:title", content: "AIOps Course | Hands-On Artificial Intelligence for IT Operations Training" },
+      {
+        property: "og:title",
+        content: "AIOps Course | Hands-On Artificial Intelligence for IT Operations Training",
+      },
       {
         property: "og:description",
         content:
@@ -57,12 +69,12 @@ export const Route = createFileRoute("/")({
 /* ---------- DATA ---------- */
 
 const navLinks = [
+  { href: "#outcomes", label: "Career Outcomes" },
   { href: "#highlights", label: "Course Highlights" },
   { href: "#lab", label: "Lab Setup" },
-  { href: "#syllabus", label: "Syllabus" },
   { href: "#tools", label: "Tools" },
+  { href: "#syllabus", label: "Syllabus" },
   { href: "#capstone", label: "Capstone" },
-  { href: "#outcomes", label: "Career Outcomes" },
   { href: "#faq", label: "FAQ" },
 ];
 
@@ -89,12 +101,30 @@ const trustItems = [
 ];
 
 const pains = [
-  { t: "Alert Storms, No Clarity", d: "Too many alerts but not enough root cause clarity for on-call engineers." },
-  { t: "Scattered Signals", d: "Logs, metrics, and incidents live across disconnected tools and dashboards." },
-  { t: "Repeated Toil", d: "Teams waste hours manually troubleshooting issues that keep coming back." },
-  { t: "Blind Thresholds", d: "Static thresholds miss early warning signs hidden in metric patterns." },
-  { t: "Late Capacity Hits", d: "Capacity problems are detected only after services start failing in production." },
-  { t: "Runbook Drag", d: "Incident response depends too much on slow, manual, tribal-knowledge runbooks." },
+  {
+    t: "Alert Storms, No Clarity",
+    d: "Too many alerts but not enough root cause clarity for on-call engineers.",
+  },
+  {
+    t: "Scattered Signals",
+    d: "Logs, metrics, and incidents live across disconnected tools and dashboards.",
+  },
+  {
+    t: "Repeated Toil",
+    d: "Teams waste hours manually troubleshooting issues that keep coming back.",
+  },
+  {
+    t: "Blind Thresholds",
+    d: "Static thresholds miss early warning signs hidden in metric patterns.",
+  },
+  {
+    t: "Late Capacity Hits",
+    d: "Capacity problems are detected only after services start failing in production.",
+  },
+  {
+    t: "Runbook Drag",
+    d: "Incident response depends too much on slow, manual, tribal-knowledge runbooks.",
+  },
 ];
 
 const lifecycle = [
@@ -109,14 +139,42 @@ const lifecycle = [
 ];
 
 const careers = [
-  { t: "AIOps Engineer", s: "Observability, ML detection, automation", o: "End-to-end AIOps pipeline" },
-  { t: "Site Reliability Engineer", s: "SLO/SLI, error budgets, monitoring", o: "Reliability dashboards" },
+  {
+    t: "AIOps Engineer",
+    s: "Observability, ML detection, automation",
+    o: "End-to-end AIOps pipeline",
+  },
+  {
+    t: "Site Reliability Engineer",
+    s: "SLO/SLI, error budgets, monitoring",
+    o: "Reliability dashboards",
+  },
   { t: "DevOps Engineer", s: "CI signal, alerting, remediation", o: "Self-healing workflows" },
-  { t: "NOC Engineer", s: "Alert triage, correlation, escalation", o: "Noise-reduced alert system" },
-  { t: "SOC Operations Engineer", s: "Event correlation, log analytics", o: "Incident timeline reports" },
-  { t: "Infrastructure Monitoring Engineer", s: "Prometheus, Grafana, exporters", o: "Multi-VM monitoring stack" },
-  { t: "Incident Response Engineer", s: "Runbooks, RCA, automation", o: "LLM-assisted incident reports" },
-  { t: "Automation Engineer", s: "Ansible, scripting, safe automation", o: "Auto-remediation library" },
+  {
+    t: "NOC Engineer",
+    s: "Alert triage, correlation, escalation",
+    o: "Noise-reduced alert system",
+  },
+  {
+    t: "SOC Operations Engineer",
+    s: "Event correlation, log analytics",
+    o: "Incident timeline reports",
+  },
+  {
+    t: "Infrastructure Monitoring Engineer",
+    s: "Prometheus, Grafana, exporters",
+    o: "Multi-VM monitoring stack",
+  },
+  {
+    t: "Incident Response Engineer",
+    s: "Runbooks, RCA, automation",
+    o: "LLM-assisted incident reports",
+  },
+  {
+    t: "Automation Engineer",
+    s: "Ansible, scripting, safe automation",
+    o: "Auto-remediation library",
+  },
 ];
 
 const highlights = [
@@ -162,9 +220,25 @@ const vms = [
 ];
 
 const tools = [
-  "VirtualBox", "Ubuntu Server", "Prometheus", "Grafana", "Alertmanager", "Node Exporter",
-  "Nginx", "Python Flask", "PostgreSQL / MySQL", "ELK / OpenSearch", "Loki + Promtail",
-  "Python", "pandas", "scikit-learn", "matplotlib", "Ansible", "Bash", "Ollama (Local LLM)", "Git",
+  "VirtualBox",
+  "Ubuntu Server",
+  "Prometheus",
+  "Grafana",
+  "Alertmanager",
+  "Node Exporter",
+  "Nginx",
+  "Python Flask",
+  "PostgreSQL / MySQL",
+  "ELK / OpenSearch",
+  "Loki + Promtail",
+  "Python",
+  "pandas",
+  "scikit-learn",
+  "matplotlib",
+  "Ansible",
+  "Bash",
+  "Ollama (Local LLM)",
+  "Git",
 ];
 
 const syllabus = [
@@ -186,7 +260,8 @@ const syllabus = [
       "Alert fatigue, slow RCA, repeated incidents, capacity issues",
     ],
     lab: "Create 3 Ubuntu VMs (aiops-control, app-server, db-server). Configure networking, SSH, Nginx, a Flask app, and Node Exporter. Draw the architecture diagram.",
-    breakfix: "Stop Nginx, verify outage, troubleshoot with top, htop, free, df, journalctl, systemctl.",
+    breakfix:
+      "Stop Nginx, verify outage, troubleshoot with top, htop, free, df, journalctl, systemctl.",
   },
   {
     week: "Week 2",
@@ -246,7 +321,8 @@ const syllabus = [
       "Common patterns: 5xx, auth fails, DB timeouts, disk errors",
     ],
     lab: "Forward logs from app & db VMs. Parse Nginx, app, DB logs. Build dashboards. Write a Python script to correlate alerts + logs within 5-minute windows.",
-    breakfix: "Stop DB → app connection errors → Nginx 502s. Correlate alerts to find DB as root cause.",
+    breakfix:
+      "Stop DB → app connection errors → Nginx 502s. Correlate alerts to find DB as root cause.",
   },
   {
     week: "Week 5",
@@ -286,7 +362,8 @@ const syllabus = [
       "Preventive actions before incidents",
     ],
     lab: "Generate controlled disk growth on db-server-vm. Export metrics. Build a Python forecaster predicting when disk crosses 80% and 90%. Add a Grafana capacity panel.",
-    breakfix: "Simulate slow disk growth, log file growth, DB storage rise. Recommend preventive actions.",
+    breakfix:
+      "Simulate slow disk growth, log file growth, DB storage rise. Recommend preventive actions.",
   },
   {
     week: "Week 7",
@@ -326,7 +403,8 @@ const syllabus = [
       "AIOps maturity model",
     ],
     lab: "Install Ollama + lightweight model on aiops-control-vm. Python script gathers alerts + logs + anomaly + remediation history → LLM returns incident summary, RCA, remediation, prevention.",
-    breakfix: "Full incident: DB fails → app errors → Nginx 502 → alerts → correlation → ML anomaly → LLM report → Ansible fix → Grafana confirms recovery.",
+    breakfix:
+      "Full incident: DB fails → app errors → Nginx 502 → alerts → correlation → ML anomaly → LLM report → Ansible fix → Grafana confirms recovery.",
   },
 ];
 
@@ -334,26 +412,56 @@ const trainingModes = [
   {
     t: "Offline AIOps Training",
     s: "Classroom interaction & guided lab practice",
-    f: ["Face-to-face mentoring", "Practical VirtualBox sessions", "Live troubleshooting", "Capstone guidance", "Resume & mock interviews"],
+    f: [
+      "Face-to-face mentoring",
+      "Practical VirtualBox sessions",
+      "Live troubleshooting",
+      "Capstone guidance",
+      "Resume & mock interviews",
+    ],
   },
   {
     t: "Online Live AIOps Training",
     s: "For working professionals and remote learners",
-    f: ["Live online classes", "Flexible schedule", "Guided local lab setup", "Small group support", "Study material & tasks"],
+    f: [
+      "Live online classes",
+      "Flexible schedule",
+      "Guided local lab setup",
+      "Small group support",
+      "Study material & tasks",
+    ],
     featured: true,
   },
   {
     t: "Corporate AIOps Training",
     s: "For IT Ops, DevOps, SRE, NOC & SOC teams",
-    f: ["Customized curriculum", "Team workshops", "Incident simulation", "Automation runbook practice", "Vendor-neutral concepts"],
+    f: [
+      "Customized curriculum",
+      "Team workshops",
+      "Incident simulation",
+      "Automation runbook practice",
+      "Vendor-neutral concepts",
+    ],
   },
 ];
 
 const testimonials = [
-  "This course helped me understand how monitoring, alerting, automation and AI work together in IT operations.",
-  "The VirtualBox labs made AIOps practical — I could build, break and troubleshoot everything locally.",
-  "Anomaly detection and self-healing labs helped me explain real AIOps use cases in interviews.",
-  "The capstone project gave me a complete portfolio project for DevOps and SRE roles.",
+  {
+    name: "Premkumar V",
+    text: "This course helped me understand how monitoring, alerting, automation and AI work together in IT operations.",
+  },
+  {
+    name: "Rex F",
+    text: "The VirtualBox labs made AIOps practical — I could build, break and troubleshoot everything locally.",
+  },
+  {
+    name: "Ivan Maxwell",
+    text: "Anomaly detection and self-healing labs helped me explain real AIOps use cases in interviews.",
+  },
+  {
+    name: "Perumal Sivam",
+    text: "The capstone project gave me a complete portfolio project for DevOps and SRE roles.",
+  },
 ];
 
 const mentorSupport = [
@@ -379,21 +487,66 @@ const placement = [
 ];
 
 const faqs = [
-  { q: "Who can join this AIOps course?", a: "Linux admins, DevOps engineers, SRE beginners, NOC/SOC engineers, IT support, infrastructure engineers, and college students with Linux basics." },
-  { q: "Do I need cloud experience before joining?", a: "No. This course is fully vendor-neutral and runs entirely on local VirtualBox VMs. Cloud experience is not required." },
-  { q: "Is this course vendor-neutral?", a: "Yes. We focus on concepts and open-source tools that apply across any IT operations, DevOps or SRE environment." },
-  { q: "Will all labs run locally on VirtualBox?", a: "Yes. Every lab — including ML anomaly detection and the local LLM assistant — runs on Ubuntu VMs inside VirtualBox on your laptop." },
-  { q: "What laptop configuration is recommended?", a: "16 GB RAM, 4-core CPU and 80 GB free disk space are recommended. A low-resource 3-VM option is also provided." },
-  { q: "Will I learn Prometheus and Grafana?", a: "Yes. You will install, configure and use Prometheus, Alertmanager and Grafana for end-to-end observability." },
-  { q: "Will I learn anomaly detection using Python?", a: "Yes. You will build Z-score, moving average and Isolation Forest based anomaly detection scripts." },
-  { q: "Will I learn auto-remediation using Ansible?", a: "Yes. You will write Ansible playbooks and integrate them with Alertmanager for safe auto-remediation." },
-  { q: "Will I build a self-healing infrastructure lab?", a: "Yes. You will build a complete self-healing workflow with validation, approval and rollback steps." },
-  { q: "Will I use a local LLM for incident summaries?", a: "Yes. You will run a lightweight model with Ollama locally to generate incident summaries and RCA suggestions." },
-  { q: "Is this course suitable for DevOps engineers?", a: "Yes. The curriculum maps directly to modern DevOps and SRE responsibilities." },
-  { q: "Is this course suitable for SRE beginners?", a: "Yes. SRE foundations like SLO/SLI, error budgets and reliability practices are integrated." },
-  { q: "Do you provide placement assistance?", a: "Yes — we provide placement assistance, mock interviews, resume support and project portfolio reviews. We do not promise guaranteed placement." },
-  { q: "Will I get a certificate?", a: "Yes. A Jeevi Academy course completion certificate is issued after the capstone project." },
-  { q: "How can I know the course fees and next batch date?", a: "Book a free counselling call or message us on WhatsApp — our advisor will share fees, batch dates and lab requirements." },
+  {
+    q: "Who can join this AIOps course?",
+    a: "Linux admins, DevOps engineers, SRE beginners, NOC/SOC engineers, IT support, infrastructure engineers, and college students with Linux basics.",
+  },
+  {
+    q: "Do I need cloud experience before joining?",
+    a: "No. This course is fully vendor-neutral and runs entirely on local VirtualBox VMs. Cloud experience is not required.",
+  },
+  {
+    q: "Is this course vendor-neutral?",
+    a: "Yes. We focus on concepts and open-source tools that apply across any IT operations, DevOps or SRE environment.",
+  },
+  {
+    q: "Will all labs run locally on VirtualBox?",
+    a: "Yes. Every lab — including ML anomaly detection and the local LLM assistant — runs on Ubuntu VMs inside VirtualBox on your laptop.",
+  },
+  {
+    q: "What laptop configuration is recommended?",
+    a: "16 GB RAM, 4-core CPU and 80 GB free disk space are recommended. A low-resource 3-VM option is also provided.",
+  },
+  {
+    q: "Will I learn Prometheus and Grafana?",
+    a: "Yes. You will install, configure and use Prometheus, Alertmanager and Grafana for end-to-end observability.",
+  },
+  {
+    q: "Will I learn anomaly detection using Python?",
+    a: "Yes. You will build Z-score, moving average and Isolation Forest based anomaly detection scripts.",
+  },
+  {
+    q: "Will I learn auto-remediation using Ansible?",
+    a: "Yes. You will write Ansible playbooks and integrate them with Alertmanager for safe auto-remediation.",
+  },
+  {
+    q: "Will I build a self-healing infrastructure lab?",
+    a: "Yes. You will build a complete self-healing workflow with validation, approval and rollback steps.",
+  },
+  {
+    q: "Will I use a local LLM for incident summaries?",
+    a: "Yes. You will run a lightweight model with Ollama locally to generate incident summaries and RCA suggestions.",
+  },
+  {
+    q: "Is this course suitable for DevOps engineers?",
+    a: "Yes. The curriculum maps directly to modern DevOps and SRE responsibilities.",
+  },
+  {
+    q: "Is this course suitable for SRE beginners?",
+    a: "Yes. SRE foundations like SLO/SLI, error budgets and reliability practices are integrated.",
+  },
+  {
+    q: "Do you provide placement assistance?",
+    a: "Yes — we provide placement assistance, mock interviews, resume support and project portfolio reviews. We do not promise guaranteed placement.",
+  },
+  {
+    q: "Will I get a certificate?",
+    a: "Yes. A Jeevi Academy course completion certificate is issued after the capstone project.",
+  },
+  {
+    q: "How can I know the course fees and next batch date?",
+    a: "Book a free counselling call or message us on WhatsApp — our advisor will share fees, batch dates and lab requirements.",
+  },
 ];
 
 const capstoneComponents = [
@@ -435,7 +588,7 @@ function AIOpsLanding() {
       </main>
       <Footer />
       <MobileStickyBar />
-      <DesktopStickyCard />
+      <FloatingQuickActions />
     </div>
   );
 }
@@ -456,9 +609,7 @@ function Header() {
     >
       <div className="max-w-7xl mx-auto px-4 lg:px-8 h-16 flex items-center justify-between">
         <a href="#top" className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-cream flex items-center justify-center text-primary-foreground font-bold">
-            J
-          </div>
+          <img src="/favicon.ico" alt="Logo" className="w-8 h-8 object-contain" />
           <span className="font-semibold tracking-tight">Jeevi Academy</span>
         </a>
         <nav className="hidden lg:flex items-center gap-6 text-sm text-muted-foreground">
@@ -499,13 +650,28 @@ function Header() {
       {open && (
         <div className="lg:hidden border-t border-border bg-popover px-4 py-4 space-y-2">
           {navLinks.map((l) => (
-            <a key={l.href} href={l.href} onClick={() => setOpen(false)} className="block py-2 text-sm text-muted-foreground hover:text-foreground">
+            <a
+              key={l.href}
+              href={l.href}
+              onClick={() => setOpen(false)}
+              className="block py-2 text-sm text-muted-foreground hover:text-foreground"
+            >
               {l.label}
             </a>
           ))}
           <div className="flex gap-2 pt-2">
-            <a href="tel:+919994051212" className="flex-1 text-center px-3 py-2 text-sm rounded-lg border border-border">Call</a>
-            <a href="#lead" className="flex-1 text-center px-3 py-2 text-sm rounded-lg bg-primary text-primary-foreground font-semibold">Counselling</a>
+            <a
+              href="tel:+919994051212"
+              className="flex-1 text-center px-3 py-2 text-sm rounded-lg border border-border"
+            >
+              Call
+            </a>
+            <a
+              href="#lead"
+              className="flex-1 text-center px-3 py-2 text-sm rounded-lg bg-primary text-primary-foreground font-semibold"
+            >
+              Counselling
+            </a>
           </div>
         </div>
       )}
@@ -515,7 +681,10 @@ function Header() {
 
 function Hero() {
   return (
-    <section id="top" className="relative overflow-hidden">
+    <section
+      id="top"
+      className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-blue-950 to-blue-800"
+    >
       <div className="absolute inset-0 grid-bg opacity-30 [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]" />
       <div className="relative max-w-7xl mx-auto px-4 lg:px-8 pt-12 lg:pt-20 pb-16 lg:pb-24 grid lg:grid-cols-2 gap-12 items-center">
         <div>
@@ -524,29 +693,43 @@ function Hero() {
             New Batch · Vendor-Neutral · Local Labs
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05]">
-            AIOps Course with{" "}
-            <span className="text-gradient-orange">Hands-On VirtualBox Labs</span>
+            AIOps Course with <span className="text-gradient-orange">Hands-On VirtualBox Labs</span>
           </h1>
           <p className="mt-6 text-base md:text-lg text-muted-foreground max-w-xl">
-            Learn Artificial Intelligence for IT Operations through practical labs covering observability, metrics, logs, traces, anomaly detection, event correlation, alert fatigue reduction, predictive maintenance, auto-remediation and self-healing infrastructure.
+            Learn Artificial Intelligence for IT Operations through practical labs covering
+            observability, metrics, logs, traces, anomaly detection, event correlation, alert
+            fatigue reduction, predictive maintenance, auto-remediation and self-healing
+            infrastructure.
           </p>
           <div className="mt-6 flex flex-wrap gap-2">
             {heroBadges.map((b) => (
-              <span key={b} className="text-xs px-3 py-1.5 rounded-full border border-border bg-card/60 text-muted-foreground">
+              <span
+                key={b}
+                className="text-xs px-3 py-1.5 rounded-full border border-border bg-card/60 text-muted-foreground"
+              >
                 {b}
               </span>
             ))}
           </div>
           <div className="mt-8 flex flex-wrap gap-3">
-            <a href="#lead" data-cta="book-free-counselling" className="px-6 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90 transition glow-orange">
+            <a
+              href="#lead"
+              data-cta="book-free-counselling"
+              className="px-6 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90 transition glow-orange"
+            >
               Book Free Career Counselling
             </a>
-            <a href="#syllabus" data-cta="download-syllabus" className="px-6 py-3 rounded-lg border border-border hover:border-primary/60 hover:text-primary transition font-medium">
+            <a
+              href="#syllabus"
+              data-cta="download-syllabus"
+              className="px-6 py-3 rounded-lg border border-border hover:border-primary/60 hover:text-primary transition font-medium"
+            >
               Download Course Syllabus
             </a>
           </div>
           <p className="mt-4 text-xs text-muted-foreground max-w-md">
-            Suitable for Linux admins, DevOps engineers, SRE beginners, NOC/SOC engineers, IT support engineers and infrastructure professionals.
+            Suitable for Linux admins, DevOps engineers, SRE beginners, NOC/SOC engineers, IT
+            support engineers and infrastructure professionals.
           </p>
         </div>
         <HeroVisual />
@@ -588,7 +771,9 @@ function HeroVisual() {
           </div>
           <div className="grid grid-cols-2 gap-3">
             <div className="rounded-lg border border-border bg-popover/60 p-3">
-              <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Anomaly Score</div>
+              <div className="text-[10px] uppercase tracking-wider text-muted-foreground">
+                Anomaly Score
+              </div>
               <div className="mt-1 flex items-end gap-2">
                 <span className="text-2xl font-bold text-primary">0.87</span>
                 <span className="text-xs text-warning mb-1">↑ isolation-forest</span>
@@ -598,7 +783,9 @@ function HeroVisual() {
               </div>
             </div>
             <div className="rounded-lg border border-border bg-popover/60 p-3">
-              <div className="text-[10px] uppercase tracking-wider text-muted-foreground">Self-Healing</div>
+              <div className="text-[10px] uppercase tracking-wider text-muted-foreground">
+                Self-Healing
+              </div>
               <div className="mt-1 text-sm font-mono space-y-1">
                 <div className="text-success">✓ verify health</div>
                 <div className="text-success">✓ ansible: restart-db</div>
@@ -618,7 +805,17 @@ function HeroVisual() {
   );
 }
 
-function Metric({ label, value, trend, accent }: { label: string; value: string; trend: number[]; accent?: boolean }) {
+function Metric({
+  label,
+  value,
+  trend,
+  accent,
+}: {
+  label: string;
+  value: string;
+  trend: number[];
+  accent?: boolean;
+}) {
   const max = Math.max(...trend, 1);
   return (
     <div className="rounded-lg border border-border bg-popover/60 p-3">
@@ -626,15 +823,28 @@ function Metric({ label, value, trend, accent }: { label: string; value: string;
       <div className={`text-lg font-bold mt-0.5 ${accent ? "text-primary" : ""}`}>{value}</div>
       <div className="mt-2 flex items-end gap-0.5 h-6">
         {trend.map((v, i) => (
-          <div key={i} className={`flex-1 rounded-sm ${accent ? "bg-primary/70" : "bg-muted-foreground/40"}`} style={{ height: `${(v / max) * 100}%` }} />
+          <div
+            key={i}
+            className={`flex-1 rounded-sm ${accent ? "bg-primary/70" : "bg-muted-foreground/40"}`}
+            style={{ height: `${(v / max) * 100}%` }}
+          />
         ))}
       </div>
     </div>
   );
 }
 
-function TimelineRow({ time, sev, msg }: { time: string; sev: "critical" | "warning" | "info"; msg: string }) {
-  const color = sev === "critical" ? "text-destructive" : sev === "warning" ? "text-warning" : "text-ice";
+function TimelineRow({
+  time,
+  sev,
+  msg,
+}: {
+  time: string;
+  sev: "critical" | "warning" | "info";
+  msg: string;
+}) {
+  const color =
+    sev === "critical" ? "text-destructive" : sev === "warning" ? "text-warning" : "text-ice";
   return (
     <div className="flex items-start gap-2 text-xs font-mono">
       <span className="text-muted-foreground">{time}</span>
@@ -662,10 +872,22 @@ function TrustBar() {
   );
 }
 
-function SectionHeading({ eyebrow, title, subtitle }: { eyebrow?: string; title: string; subtitle?: string }) {
+function SectionHeading({
+  eyebrow,
+  title,
+  subtitle,
+}: {
+  eyebrow?: string;
+  title: string;
+  subtitle?: string;
+}) {
   return (
     <div className="max-w-3xl">
-      {eyebrow && <div className="text-xs uppercase tracking-widest text-primary font-semibold mb-3">{eyebrow}</div>}
+      {eyebrow && (
+        <div className="text-xs uppercase tracking-widest text-primary font-semibold mb-3">
+          {eyebrow}
+        </div>
+      )}
       <h2 className="text-3xl md:text-4xl font-bold tracking-tight">{title}</h2>
       {subtitle && <p className="mt-4 text-muted-foreground">{subtitle}</p>}
     </div>
@@ -701,7 +923,10 @@ function LifecycleSection() {
   return (
     <section className="bg-secondary/30 border-y border-border">
       <div className="max-w-7xl mx-auto px-4 lg:px-8 py-20">
-        <SectionHeading eyebrow="AIOps Lifecycle" title="What You Will Learn in the AIOps Lifecycle" />
+        <SectionHeading
+          eyebrow="AIOps Lifecycle"
+          title="What You Will Learn in the AIOps Lifecycle"
+        />
         <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3">
           {lifecycle.map((s, i) => (
             <div key={s.t} className="relative glass-card p-5">
@@ -728,8 +953,12 @@ function CareerSection() {
           <div key={c.t} className="glass-card p-5 hover:border-primary/40 transition group">
             <div className="text-xs uppercase tracking-wider text-primary mb-2">Career</div>
             <h3 className="font-semibold mb-3">{c.t}</h3>
-            <p className="text-xs text-muted-foreground"><span className="text-foreground/70">Skills:</span> {c.s}</p>
-            <p className="text-xs text-muted-foreground mt-2"><span className="text-foreground/70">Portfolio:</span> {c.o}</p>
+            <p className="text-xs text-muted-foreground">
+              <span className="text-foreground/70">Skills:</span> {c.s}
+            </p>
+            <p className="text-xs text-muted-foreground mt-2">
+              <span className="text-foreground/70">Portfolio:</span> {c.o}
+            </p>
           </div>
         ))}
       </div>
@@ -742,18 +971,35 @@ function OverviewHighlights() {
     <section id="highlights" className="bg-secondary/30 border-y border-border">
       <div className="max-w-7xl mx-auto px-4 lg:px-8 py-20 grid lg:grid-cols-5 gap-10">
         <div className="lg:col-span-2">
-          <SectionHeading eyebrow="Why Jeevi Academy" title="Why Choose Jeevi Academy's AIOps Training?" />
+          <SectionHeading
+            eyebrow="Why Jeevi Academy"
+            title="Why Choose Jeevi Academy's AIOps Training?"
+          />
           <p className="mt-5 text-muted-foreground text-sm leading-relaxed">
-            Jeevi Academy's AIOps Course is designed for learners who want practical, vendor-neutral skills in modern IT operations. Students learn observability, alerting, log analytics, anomaly detection, event correlation, predictive maintenance, automated incident response and self-healing infrastructure using VirtualBox virtual machines and open-source tools. Suitable for Linux administrators, DevOps engineers, SRE beginners, NOC/SOC engineers, IT support professionals and infrastructure engineers.
+            Jeevi Academy's AIOps Course is designed for learners who want practical, vendor-neutral
+            skills in modern IT operations. Students learn observability, alerting, log analytics,
+            anomaly detection, event correlation, predictive maintenance, automated incident
+            response and self-healing infrastructure using VirtualBox virtual machines and
+            open-source tools. Suitable for Linux administrators, DevOps engineers, SRE beginners,
+            NOC/SOC engineers, IT support professionals and infrastructure engineers.
           </p>
-          <a href="#lead" data-cta="check-next-batch" className="inline-block mt-6 px-5 py-3 rounded-lg bg-primary text-primary-foreground font-semibold glow-orange">
+          <a
+            href="#lead"
+            data-cta="check-next-batch"
+            className="inline-block mt-6 px-5 py-3 rounded-lg bg-primary text-primary-foreground font-semibold glow-orange"
+          >
             Check Your Eligibility
           </a>
         </div>
         <div className="lg:col-span-3 grid sm:grid-cols-2 gap-2">
           {highlights.map((h) => (
-            <div key={h} className="flex items-center gap-3 p-3 rounded-lg border border-border bg-card/60">
-              <div className="w-7 h-7 rounded-md bg-primary/10 border border-primary/30 flex items-center justify-center text-primary text-sm">✓</div>
+            <div
+              key={h}
+              className="flex items-center gap-3 p-3 rounded-lg border border-border bg-card/60"
+            >
+              <div className="w-7 h-7 rounded-md bg-primary/10 border border-primary/30 flex items-center justify-center text-primary text-sm">
+                ✓
+              </div>
               <span className="text-sm">{h}</span>
             </div>
           ))}
@@ -782,7 +1028,10 @@ function LabSection() {
               ["Hypervisor", "VirtualBox"],
               ["OS Image", "Ubuntu Server ISO"],
             ].map(([k, v]) => (
-              <li key={k} className="flex justify-between border-b border-border pb-2 last:border-0">
+              <li
+                key={k}
+                className="flex justify-between border-b border-border pb-2 last:border-0"
+              >
                 <span className="text-muted-foreground">{k}</span>
                 <span className="font-mono text-foreground">{v}</span>
               </li>
@@ -802,7 +1051,10 @@ function LabSection() {
               <p className="text-sm text-muted-foreground">{vm.purpose}</p>
               <div className="mt-3 flex flex-wrap gap-1.5">
                 {vm.tools.map((t) => (
-                  <span key={t} className="text-[10px] px-2 py-0.5 rounded border border-border bg-popover text-muted-foreground font-mono">
+                  <span
+                    key={t}
+                    className="text-[10px] px-2 py-0.5 rounded border border-border bg-popover text-muted-foreground font-mono"
+                  >
                     {t}
                   </span>
                 ))}
@@ -822,7 +1074,10 @@ function ToolsSection() {
         <SectionHeading eyebrow="Toolchain" title="Open-Source Tools You Will Practice" />
         <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
           {tools.map((t) => (
-            <div key={t} className="group glass-card p-4 hover:border-primary/40 transition text-center">
+            <div
+              key={t}
+              className="group glass-card p-4 hover:border-primary/40 transition text-center"
+            >
               <div className="text-sm font-medium">{t}</div>
             </div>
           ))}
@@ -838,20 +1093,43 @@ function Assessment() {
       <div className="gradient-border-inner">
         <div className="glass-card p-8 md:p-10 grid lg:grid-cols-2 gap-8 items-center">
           <div>
-            <SectionHeading eyebrow="Free 60-Second Quiz" title="Not Sure If AIOps Is Right for You?" />
+            <SectionHeading
+              eyebrow="Free 60-Second Quiz"
+              title="Not Sure If AIOps Is Right for You?"
+            />
             <ol className="mt-6 space-y-3 text-sm text-muted-foreground">
-              <li><span className="text-primary font-semibold">Step 1.</span> Tell us your current role</li>
-              <li><span className="text-primary font-semibold">Step 2.</span> Share your Linux / DevOps experience</li>
-              <li><span className="text-primary font-semibold">Step 3.</span> Pick your operations career goal</li>
+              <li>
+                <span className="text-primary font-semibold">Step 1.</span> Tell us your current
+                role
+              </li>
+              <li>
+                <span className="text-primary font-semibold">Step 2.</span> Share your Linux /
+                DevOps experience
+              </li>
+              <li>
+                <span className="text-primary font-semibold">Step 3.</span> Pick your operations
+                career goal
+              </li>
             </ol>
-            <a href="#lead" data-cta="take-free-assessment" className="inline-block mt-6 px-5 py-3 rounded-lg bg-primary text-primary-foreground font-semibold glow-orange">
+            <a
+              href="#lead"
+              data-cta="take-free-assessment"
+              className="inline-block mt-6 px-5 py-3 rounded-lg bg-primary text-primary-foreground font-semibold glow-orange"
+            >
               Take Free AIOps Career Assessment
             </a>
           </div>
           <div className="grid sm:grid-cols-2 gap-3">
-            {["Linux Admin → AIOps Path", "DevOps → SRE Path", "NOC/SOC → Automation Path", "Fresher → Infra Monitoring Path"].map((p) => (
+            {[
+              "Linux Admin → AIOps Path",
+              "DevOps → SRE Path",
+              "NOC/SOC → Automation Path",
+              "Fresher → Infra Monitoring Path",
+            ].map((p) => (
               <div key={p} className="rounded-lg border border-border bg-popover p-4">
-                <div className="text-xs text-primary uppercase tracking-wider mb-1">Result Preview</div>
+                <div className="text-xs text-primary uppercase tracking-wider mb-1">
+                  Result Preview
+                </div>
                 <div className="text-sm font-medium">{p}</div>
               </div>
             ))}
@@ -876,7 +1154,10 @@ function SyllabusSection() {
           {syllabus.map((w, i) => {
             const isOpen = open === i;
             return (
-              <div key={w.week} className={`glass-card overflow-hidden transition ${isOpen ? "border-primary/40" : ""}`}>
+              <div
+                key={w.week}
+                className={`glass-card overflow-hidden transition ${isOpen ? "border-primary/40" : ""}`}
+              >
                 <button
                   onClick={() => setOpen(isOpen ? -1 : i)}
                   className="w-full flex items-center justify-between gap-4 p-5 text-left"
@@ -891,29 +1172,44 @@ function SyllabusSection() {
                       <h3 className="font-semibold truncate">{w.title}</h3>
                     </div>
                   </div>
-                  <span className={`shrink-0 text-primary transition ${isOpen ? "rotate-45" : ""}`}>+</span>
+                  <span className={`shrink-0 text-primary transition ${isOpen ? "rotate-45" : ""}`}>
+                    +
+                  </span>
                 </button>
                 {isOpen && (
                   <div className="px-5 pb-6 grid md:grid-cols-2 gap-6 border-t border-border pt-5">
                     <div>
-                      <h4 className="text-xs uppercase tracking-wider text-muted-foreground mb-2">Learning Objectives</h4>
+                      <h4 className="text-xs uppercase tracking-wider text-muted-foreground mb-2">
+                        Learning Objectives
+                      </h4>
                       <ul className="space-y-1.5 text-sm">
                         {w.objectives.map((o) => (
-                          <li key={o} className="flex gap-2"><span className="text-success">✓</span><span>{o}</span></li>
+                          <li key={o} className="flex gap-2">
+                            <span className="text-success">✓</span>
+                            <span>{o}</span>
+                          </li>
                         ))}
                       </ul>
-                      <h4 className="text-xs uppercase tracking-wider text-muted-foreground mt-5 mb-2">Core Topics</h4>
+                      <h4 className="text-xs uppercase tracking-wider text-muted-foreground mt-5 mb-2">
+                        Core Topics
+                      </h4>
                       <ul className="space-y-1.5 text-sm text-muted-foreground">
-                        {w.topics.map((t) => <li key={t}>• {t}</li>)}
+                        {w.topics.map((t) => (
+                          <li key={t}>• {t}</li>
+                        ))}
                       </ul>
                     </div>
                     <div className="space-y-4">
                       <div className="rounded-lg border border-primary/30 bg-primary/5 p-4">
-                        <div className="text-xs uppercase tracking-wider text-primary mb-2">VirtualBox Lab</div>
+                        <div className="text-xs uppercase tracking-wider text-primary mb-2">
+                          VirtualBox Lab
+                        </div>
                         <p className="text-sm">{w.lab}</p>
                       </div>
                       <div className="rounded-lg border border-destructive/30 bg-destructive/5 p-4">
-                        <div className="text-xs uppercase tracking-wider text-destructive mb-2">Break / Fix Activity</div>
+                        <div className="text-xs uppercase tracking-wider text-destructive mb-2">
+                          Break / Fix Activity
+                        </div>
                         <p className="text-sm">{w.breakfix}</p>
                       </div>
                     </div>
@@ -962,7 +1258,10 @@ function CapstoneSection() {
             "LLM incident summary output",
             "Final incident report + demo video",
           ].map((d) => (
-            <div key={d} className="flex items-start gap-2"><span className="text-success">✓</span><span>{d}</span></div>
+            <div key={d} className="flex items-start gap-2">
+              <span className="text-success">✓</span>
+              <span>{d}</span>
+            </div>
           ))}
         </div>
       </div>
@@ -974,21 +1273,38 @@ function TrainingModes() {
   return (
     <section className="bg-secondary/30 border-y border-border">
       <div className="max-w-7xl mx-auto px-4 lg:px-8 py-20">
-        <SectionHeading eyebrow="Training Modes" title="Choose Online, Offline, or Corporate AIOps Training" />
+        <SectionHeading
+          eyebrow="Training Modes"
+          title="Choose Online, Offline, or Corporate AIOps Training"
+        />
         <div className="mt-10 grid md:grid-cols-3 gap-5">
           {trainingModes.map((m) => (
-            <div key={m.t} className={`glass-card p-6 flex flex-col ${m.featured ? "border-primary/50 glow-orange" : ""}`}>
-              {m.featured && <div className="text-[10px] uppercase tracking-wider text-primary mb-2">Most Popular</div>}
+            <div
+              key={m.t}
+              className={`glass-card p-6 flex flex-col ${m.featured ? "border-primary/50 glow-orange" : ""}`}
+            >
+              {m.featured && (
+                <div className="text-[10px] uppercase tracking-wider text-primary mb-2">
+                  Most Popular
+                </div>
+              )}
               <h3 className="text-lg font-semibold">{m.t}</h3>
               <p className="text-sm text-muted-foreground mt-1">{m.s}</p>
               <ul className="mt-5 space-y-2 text-sm flex-1">
-                {m.f.map((f) => <li key={f} className="flex gap-2"><span className="text-success">✓</span>{f}</li>)}
+                {m.f.map((f) => (
+                  <li key={f} className="flex gap-2">
+                    <span className="text-success">✓</span>
+                    {f}
+                  </li>
+                ))}
               </ul>
               <a
                 href="#lead"
                 data-cta="enquire-now"
                 className={`mt-6 text-center px-4 py-2.5 rounded-lg font-semibold transition ${
-                  m.featured ? "bg-primary text-primary-foreground" : "border border-border hover:border-primary/60 hover:text-primary"
+                  m.featured
+                    ? "bg-primary text-primary-foreground"
+                    : "border border-border hover:border-primary/60 hover:text-primary"
                 }`}
               >
                 Enquire Now
@@ -1009,11 +1325,13 @@ function Testimonials() {
         {testimonials.map((t, i) => (
           <div key={i} className="glass-card p-5">
             <div className="text-primary text-2xl leading-none">&ldquo;</div>
-            <p className="mt-2 text-sm text-foreground/90">{t}</p>
+            <p className="mt-2 text-sm text-foreground/90">{t.text}</p>
             <div className="mt-4 flex items-center gap-3">
-              <div className="w-9 h-9 rounded-full bg-gradient-to-br from-primary/40 to-ice/20 border border-border" />
+              <div className="w-9 h-9 rounded-full bg-gradient-to-br from-primary/40 to-ice/20 border border-border flex items-center justify-center text-xs font-bold text-primary-foreground">
+                {t.name.charAt(0)}
+              </div>
               <div>
-                <div className="text-sm font-medium">Alumni Learner</div>
+                <div className="text-sm font-medium">{t.name}</div>
                 <div className="text-xs text-muted-foreground">AIOps Course Batch</div>
               </div>
             </div>
@@ -1021,7 +1339,8 @@ function Testimonials() {
         ))}
       </div>
       <p className="mt-6 text-xs text-muted-foreground max-w-3xl">
-        Our learners and alumni have worked with or been associated with IT service companies, startups and enterprise technology teams.
+        Our learners and alumni have worked with or been associated with IT service companies,
+        startups and enterprise technology teams.
       </p>
     </section>
   );
@@ -1035,23 +1354,35 @@ function MentorPlacement() {
           <SectionHeading eyebrow="Mentor Support" title="You Don't Learn AIOps Alone" />
           <div className="mt-8 grid sm:grid-cols-2 gap-3">
             {mentorSupport.map((m) => (
-              <div key={m} className="flex items-center gap-3 p-3 rounded-lg border border-border bg-card/60">
-                <span className="text-primary">◆</span><span className="text-sm">{m}</span>
+              <div
+                key={m}
+                className="flex items-center gap-3 p-3 rounded-lg border border-border bg-card/60"
+              >
+                <span className="text-primary">◆</span>
+                <span className="text-sm">{m}</span>
               </div>
             ))}
           </div>
         </div>
         <div>
-          <SectionHeading eyebrow="Career Support" title="Placement Assistance and Career Support" />
+          <SectionHeading
+            eyebrow="Career Support"
+            title="Placement Assistance and Career Support"
+          />
           <div className="mt-8 grid sm:grid-cols-2 gap-3">
             {placement.map((p) => (
-              <div key={p} className="flex items-center gap-3 p-3 rounded-lg border border-border bg-card/60">
-                <span className="text-success">✓</span><span className="text-sm">{p}</span>
+              <div
+                key={p}
+                className="flex items-center gap-3 p-3 rounded-lg border border-border bg-card/60"
+              >
+                <span className="text-success">✓</span>
+                <span className="text-sm">{p}</span>
               </div>
             ))}
           </div>
           <p className="mt-4 text-xs text-muted-foreground">
-            We provide placement assistance, mock interviews and project portfolio support — not guaranteed placement claims.
+            We provide placement assistance, mock interviews and project portfolio support — not
+            guaranteed placement claims.
           </p>
         </div>
       </div>
@@ -1070,12 +1401,33 @@ function FeesCTA() {
             Want to Know the <span className="text-gradient-orange">Next Batch Date and Fees?</span>
           </h2>
           <p className="mt-4 text-muted-foreground max-w-2xl">
-            Speak with our course advisor to understand batch timing, course fee, training mode, lab setup requirements and the right AIOps learning path for your background.
+            Speak with our course advisor to understand batch timing, course fee, training mode, lab
+            setup requirements and the right AIOps learning path for your background.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <a href="#lead" data-cta="book-free-counselling" className="px-5 py-3 rounded-lg bg-primary text-primary-foreground font-semibold glow-orange">Talk to Course Advisor</a>
-            <a href="https://wa.me/919994051212" data-cta="whatsapp-us" target="_blank" rel="noopener" className="px-5 py-3 rounded-lg border border-success/40 text-success font-medium hover:bg-success/10">WhatsApp Us</a>
-            <a href="#syllabus" data-cta="download-syllabus" className="px-5 py-3 rounded-lg border border-border font-medium hover:border-primary/60 hover:text-primary">Download Syllabus</a>
+            <a
+              href="#lead"
+              data-cta="book-free-counselling"
+              className="px-5 py-3 rounded-lg bg-primary text-primary-foreground font-semibold glow-orange"
+            >
+              Talk to Course Advisor
+            </a>
+            <a
+              href="https://wa.me/919994051212"
+              data-cta="whatsapp-us"
+              target="_blank"
+              rel="noopener"
+              className="px-5 py-3 rounded-lg border border-success/40 text-success font-medium hover:bg-success/10"
+            >
+              WhatsApp Us
+            </a>
+            <a
+              href="#syllabus"
+              data-cta="download-syllabus"
+              className="px-5 py-3 rounded-lg border border-border font-medium hover:border-primary/60 hover:text-primary"
+            >
+              Download Syllabus
+            </a>
           </div>
         </div>
       </div>
@@ -1093,13 +1445,25 @@ function FAQSection() {
           {faqs.map((f, i) => {
             const isOpen = open === i;
             return (
-              <div key={f.q} className={`glass-card overflow-hidden ${isOpen ? "border-primary/40" : ""}`}>
-                <button onClick={() => setOpen(isOpen ? -1 : i)} className="w-full flex items-center justify-between gap-4 p-4 text-left">
+              <div
+                key={f.q}
+                className={`glass-card overflow-hidden ${isOpen ? "border-primary/40" : ""}`}
+              >
+                <button
+                  onClick={() => setOpen(isOpen ? -1 : i)}
+                  className="w-full flex items-center justify-between gap-4 p-4 text-left"
+                >
                   <span className="font-medium text-sm md:text-base">{f.q}</span>
-                  <span className={`text-primary text-xl shrink-0 transition ${isOpen ? "rotate-45" : ""}`}>+</span>
+                  <span
+                    className={`text-primary text-xl shrink-0 transition ${isOpen ? "rotate-45" : ""}`}
+                  >
+                    +
+                  </span>
                 </button>
                 {isOpen && (
-                  <div className="px-4 pb-4 text-sm text-muted-foreground border-t border-border pt-3">{f.a}</div>
+                  <div className="px-4 pb-4 text-sm text-muted-foreground border-t border-border pt-3">
+                    {f.a}
+                  </div>
                 )}
               </div>
             );
@@ -1125,20 +1489,40 @@ function LeadForm() {
     }
   };
   const getParam = (k: string) =>
-    typeof window !== "undefined" ? new URLSearchParams(window.location.search).get(k) ?? "" : "";
+    typeof window !== "undefined" ? (new URLSearchParams(window.location.search).get(k) ?? "") : "";
 
   return (
-    <section id="lead" className="max-w-7xl mx-auto px-4 lg:px-8 py-20 grid lg:grid-cols-2 gap-10 items-start">
+    <section
+      id="lead"
+      className="max-w-7xl mx-auto px-4 lg:px-8 py-20 grid lg:grid-cols-2 gap-10 items-start"
+    >
       <div>
         <SectionHeading
           eyebrow="Get In Touch"
           title="Talk to a Course Advisor"
           subtitle="Share your details and our advisor will reach out with batch dates, fees and the right learning path for your background."
         />
-        <div className="mt-6 space-y-3 text-sm text-muted-foreground">
-          <div className="flex items-center gap-3"><span className="text-primary">📞</span> +91 9994051212</div>
-          <div className="flex items-center gap-3"><span className="text-success">💬</span> WhatsApp Advisor</div>
-          <div className="flex items-center gap-3"><span className="text-ice">✉</span> Online · Offline · Corporate</div>
+        <div className="mt-6 space-y-4 text-sm text-muted-foreground">
+          <div className="flex items-start gap-3">
+            <Phone className="w-5 h-5 mt-0.5 text-primary" /> +91 9994051212
+          </div>
+          <div className="flex items-start gap-3">
+            <Mail className="w-5 h-5 mt-0.5 text-primary" /> jeevicounsellor@gmail.com
+          </div>
+          <div className="flex items-start gap-3">
+            <MapPin className="w-5 h-5 mt-0.5 text-primary shrink-0" />
+            <div>
+              No.6, First Floor,
+              <br />
+              2nd Main Road,
+              <br />
+              New Colony,
+              <br />
+              Chrompet,
+              <br />
+              Chennai - 600044
+            </div>
+          </div>
         </div>
       </div>
       <form onSubmit={onSubmit} className="glass-card p-6 md:p-8 space-y-4">
@@ -1146,48 +1530,117 @@ function LeadForm() {
         <Field label="Mobile Number" name="mobile" required type="tel" placeholder="+91 ..." />
         <Field label="Email" name="email" required type="email" placeholder="you@example.com" />
         <div>
-          <label className="text-xs uppercase tracking-wider text-muted-foreground">Current Status</label>
-          <select name="status" required className="mt-1 w-full px-3 py-2.5 rounded-lg bg-input border border-border text-sm focus:outline-none focus:border-primary">
-            {["Student","Fresher","Linux Administrator","DevOps Engineer","SRE Beginner","NOC/SOC Engineer","IT Support Engineer","Working Professional","Corporate Team"].map((o) => (
-              <option key={o} value={o}>{o}</option>
+          <label className="text-xs uppercase tracking-wider text-muted-foreground">
+            Current Status
+          </label>
+          <select
+            name="status"
+            required
+            className="mt-1 w-full px-3 py-2.5 rounded-lg bg-input border border-border text-sm focus:outline-none focus:border-primary"
+          >
+            {[
+              "Student",
+              "Fresher",
+              "Linux Administrator",
+              "DevOps Engineer",
+              "SRE Beginner",
+              "NOC/SOC Engineer",
+              "IT Support Engineer",
+              "Working Professional",
+              "Corporate Team",
+            ].map((o) => (
+              <option key={o} value={o}>
+                {o}
+              </option>
             ))}
           </select>
         </div>
         <div>
-          <label className="text-xs uppercase tracking-wider text-muted-foreground">Preferred Training Mode</label>
+          <label className="text-xs uppercase tracking-wider text-muted-foreground">
+            Preferred Training Mode
+          </label>
           <div className="mt-2 grid grid-cols-3 gap-2">
-            {["Online","Offline","Corporate"].map((m, i) => (
-              <label key={m} className="flex items-center gap-2 px-3 py-2 rounded-lg border border-border bg-popover text-sm cursor-pointer hover:border-primary/60">
-                <input type="radio" name="mode" value={m} defaultChecked={i === 0} className="accent-[color:var(--primary)]" />
+            {["Online", "Offline", "Corporate"].map((m, i) => (
+              <label
+                key={m}
+                className="flex items-center gap-2 px-3 py-2 rounded-lg border border-border bg-popover text-sm cursor-pointer hover:border-primary/60"
+              >
+                <input
+                  type="radio"
+                  name="mode"
+                  value={m}
+                  defaultChecked={i === 0}
+                  className="accent-[color:var(--primary)]"
+                />
                 {m}
               </label>
             ))}
           </div>
         </div>
         {/* hidden tracking */}
-        {["utm_source","utm_medium","utm_campaign","utm_term","utm_content"].map((k) => (
+        {["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"].map((k) => (
           <input key={k} type="hidden" name={k} defaultValue={getParam(k)} />
         ))}
-        <input type="hidden" name="referrer" defaultValue={typeof document !== "undefined" ? document.referrer : ""} />
-        <input type="hidden" name="current_page_url" defaultValue={typeof window !== "undefined" ? window.location.href : ""} />
-        <input type="hidden" name="landing_path" defaultValue={typeof window !== "undefined" ? window.location.pathname : ""} />
-        <input type="hidden" name="user_agent" defaultValue={typeof navigator !== "undefined" ? navigator.userAgent : ""} />
+        <input
+          type="hidden"
+          name="referrer"
+          defaultValue={typeof document !== "undefined" ? document.referrer : ""}
+        />
+        <input
+          type="hidden"
+          name="current_page_url"
+          defaultValue={typeof window !== "undefined" ? window.location.href : ""}
+        />
+        <input
+          type="hidden"
+          name="landing_path"
+          defaultValue={typeof window !== "undefined" ? window.location.pathname : ""}
+        />
+        <input
+          type="hidden"
+          name="user_agent"
+          defaultValue={typeof navigator !== "undefined" ? navigator.userAgent : ""}
+        />
 
-        <button type="submit" data-cta="get-course-details" className="w-full px-5 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90 glow-orange">
+        <button
+          type="submit"
+          data-cta="get-course-details"
+          className="w-full px-5 py-3 rounded-lg bg-primary text-primary-foreground font-semibold hover:opacity-90 glow-orange"
+        >
           Get Course Details
         </button>
-        {status === "ok" && <p className="text-sm text-success">Thanks! Our advisor will reach out shortly.</p>}
-        {status === "err" && <p className="text-sm text-destructive">Something went wrong. Please try WhatsApp.</p>}
-        <p className="text-[11px] text-muted-foreground text-center">We respect your privacy. No spam — only course details.</p>
+        {status === "ok" && (
+          <p className="text-sm text-success">Thanks! Our advisor will reach out shortly.</p>
+        )}
+        {status === "err" && (
+          <p className="text-sm text-destructive">Something went wrong. Please try WhatsApp.</p>
+        )}
+        <p className="text-[11px] text-muted-foreground text-center">
+          We respect your privacy. No spam — only course details.
+        </p>
       </form>
     </section>
   );
 }
 
-function Field({ label, name, type = "text", required, placeholder }: { label: string; name: string; type?: string; required?: boolean; placeholder?: string }) {
+function Field({
+  label,
+  name,
+  type = "text",
+  required,
+  placeholder,
+}: {
+  label: string;
+  name: string;
+  type?: string;
+  required?: boolean;
+  placeholder?: string;
+}) {
   return (
     <div>
-      <label htmlFor={name} className="text-xs uppercase tracking-wider text-muted-foreground">{label}</label>
+      <label htmlFor={name} className="text-xs uppercase tracking-wider text-muted-foreground">
+        {label}
+      </label>
       <input
         id={name}
         name={name}
@@ -1205,15 +1658,37 @@ function FinalCTA() {
     <section className="max-w-7xl mx-auto px-4 lg:px-8 py-20">
       <div className="text-center max-w-3xl mx-auto">
         <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
-          Build Practical AIOps Skills with <span className="text-gradient-orange">Local Hands-On Labs</span>
+          Build Practical AIOps Skills with{" "}
+          <span className="text-gradient-orange">Local Hands-On Labs</span>
         </h2>
         <p className="mt-5 text-muted-foreground">
-          Book a free counselling call and get a clear roadmap for learning observability, anomaly detection, event correlation, predictive maintenance and self-healing operations.
+          Book a free counselling call and get a clear roadmap for learning observability, anomaly
+          detection, event correlation, predictive maintenance and self-healing operations.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
-          <a href="#lead" data-cta="book-free-counselling" className="px-6 py-3 rounded-lg bg-primary text-primary-foreground font-semibold glow-orange">Book Free Counselling</a>
-          <a href="tel:+919994051212" data-cta="call-now" className="px-6 py-3 rounded-lg border border-border hover:border-primary/60 hover:text-primary font-medium">Call +91 9994051212</a>
-          <a href="https://wa.me/919994051212" data-cta="whatsapp-us" target="_blank" rel="noopener" className="px-6 py-3 rounded-lg border border-success/40 text-success hover:bg-success/10 font-medium">WhatsApp Us</a>
+          <a
+            href="#lead"
+            data-cta="book-free-counselling"
+            className="px-6 py-3 rounded-lg bg-primary text-primary-foreground font-semibold glow-orange"
+          >
+            Book Free Counselling
+          </a>
+          <a
+            href="tel:+919994051212"
+            data-cta="call-now"
+            className="px-6 py-3 rounded-lg border border-border hover:border-primary/60 hover:text-primary font-medium"
+          >
+            Call +91 9994051212
+          </a>
+          <a
+            href="https://wa.me/919994051212"
+            data-cta="whatsapp-us"
+            target="_blank"
+            rel="noopener"
+            className="px-6 py-3 rounded-lg border border-success/40 text-success hover:bg-success/10 font-medium"
+          >
+            WhatsApp Us
+          </a>
         </div>
       </div>
     </section>
@@ -1226,7 +1701,7 @@ function Footer() {
       <div className="max-w-7xl mx-auto px-4 lg:px-8 py-10 grid md:grid-cols-3 gap-8 text-sm">
         <div>
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-cream flex items-center justify-center text-primary-foreground font-bold">J</div>
+            <img src="/favicon.ico" alt="Logo" className="w-8 h-8 object-contain" />
             <span className="font-semibold">Jeevi Academy</span>
           </div>
           <p className="mt-3 text-muted-foreground text-xs">
@@ -1236,15 +1711,38 @@ function Footer() {
         <div>
           <div className="text-xs uppercase tracking-wider text-muted-foreground mb-3">Course</div>
           <ul className="space-y-2">
-            {navLinks.map((l) => <li key={l.href}><a href={l.href} className="hover:text-primary">{l.label}</a></li>)}
+            {navLinks.map((l) => (
+              <li key={l.href}>
+                <a href={l.href} className="hover:text-primary">
+                  {l.label}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
         <div>
           <div className="text-xs uppercase tracking-wider text-muted-foreground mb-3">Contact</div>
-          <ul className="space-y-2 text-muted-foreground">
-            <li>📞 +91 9994051212</li>
-            <li>💬 WhatsApp Advisor</li>
-            <li>Online · Offline · Corporate</li>
+          <ul className="space-y-4 text-muted-foreground">
+            <li className="flex items-start gap-2">
+              <Phone className="w-4 h-4 mt-0.5" /> +91 9994051212
+            </li>
+            <li className="flex items-start gap-2">
+              <Mail className="w-4 h-4 mt-0.5" /> jeevicounsellor@gmail.com
+            </li>
+            <li className="flex items-start gap-2">
+              <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
+              <div>
+                No.6, First Floor,
+                <br />
+                2nd Main Road,
+                <br />
+                New Colony,
+                <br />
+                Chrompet,
+                <br />
+                Chennai - 600044
+              </div>
+            </li>
           </ul>
         </div>
       </div>
@@ -1258,29 +1756,86 @@ function Footer() {
 function MobileStickyBar() {
   return (
     <div className="md:hidden fixed bottom-0 inset-x-0 z-40 border-t border-border bg-background/95 backdrop-blur-xl grid grid-cols-3 p-2 gap-2">
-      <a href="tel:+919994051212" data-cta="call-now" className="text-center text-xs font-medium py-2.5 rounded-lg border border-border">📞 Call</a>
-      <a href="https://wa.me/919994051212" data-cta="whatsapp-us" target="_blank" rel="noopener" className="text-center text-xs font-medium py-2.5 rounded-lg border border-success/40 text-success">💬 WhatsApp</a>
-      <a href="#lead" data-cta="enquire-now" className="text-center text-xs font-semibold py-2.5 rounded-lg bg-primary text-primary-foreground">Enquire</a>
+      <a
+        href="tel:+919994051212"
+        data-cta="call-now"
+        className="text-center text-xs font-medium py-2.5 rounded-lg border border-border"
+      >
+        📞 Call
+      </a>
+      <a
+        href="https://wa.me/919994051212"
+        data-cta="whatsapp-us"
+        target="_blank"
+        rel="noopener"
+        className="text-center text-xs font-medium py-2.5 rounded-lg border border-success/40 text-success"
+      >
+        💬 WhatsApp
+      </a>
+      <a
+        href="#lead"
+        data-cta="enquire-now"
+        className="text-center text-xs font-semibold py-2.5 rounded-lg bg-primary text-primary-foreground"
+      >
+        Enquire
+      </a>
     </div>
   );
 }
 
-function DesktopStickyCard() {
+function FloatingQuickActions() {
   const [visible, setVisible] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 600);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
   if (!visible) return null;
+
   return (
-    <div className="hidden xl:block fixed right-6 bottom-6 z-40 w-64">
-      <div className="glass-card p-4 space-y-2 glow-orange">
-        <div className="text-xs uppercase tracking-wider text-primary font-semibold">Quick Actions</div>
-        <a href="#syllabus" data-cta="download-syllabus" className="block text-sm px-3 py-2 rounded-lg border border-border hover:border-primary/60 hover:text-primary">📄 Download Syllabus</a>
-        <a href="https://wa.me/919994051212" data-cta="whatsapp-us" target="_blank" rel="noopener" className="block text-sm px-3 py-2 rounded-lg border border-success/40 text-success hover:bg-success/10">💬 WhatsApp Advisor</a>
-        <a href="#lead" data-cta="book-free-counselling" className="block text-center text-sm px-3 py-2 rounded-lg bg-primary text-primary-foreground font-semibold">Book Free Counselling</a>
-      </div>
+    <div className="hidden xl:flex fixed left-6 bottom-6 z-50 flex-col items-start gap-3">
+      {isOpen && (
+        <div className="w-64 animate-in fade-in slide-in-from-bottom-4 duration-200">
+          <div className="glass-card p-4 space-y-2 glow-orange">
+            <div className="text-xs uppercase tracking-wider text-primary font-semibold flex justify-between items-center">
+              <span>Quick Actions</span>
+            </div>
+            <a
+              href="#syllabus"
+              onClick={() => setIsOpen(false)}
+              className="block text-sm px-3 py-2 rounded-lg border border-border hover:border-primary/60 hover:text-primary"
+            >
+              📄 Download Syllabus
+            </a>
+            <a
+              href="https://wa.me/919994051212"
+              onClick={() => setIsOpen(false)}
+              target="_blank"
+              rel="noopener"
+              className="block text-sm px-3 py-2 rounded-lg border border-success/40 text-success hover:bg-success/10"
+            >
+              💬 WhatsApp Advisor
+            </a>
+            <a
+              href="#lead"
+              onClick={() => setIsOpen(false)}
+              className="block text-center text-sm px-3 py-2 rounded-lg bg-primary text-primary-foreground font-semibold"
+            >
+              Book Free Counselling
+            </a>
+          </div>
+        </div>
+      )}
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-14 h-14 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-lg hover:scale-105 transition-transform glow-orange cursor-pointer"
+        aria-label="Toggle Quick Actions"
+      >
+        <Zap size={28} />
+      </button>
     </div>
   );
 }

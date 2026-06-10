@@ -85,7 +85,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Join Jeevi Academy's hands-on AIOps Course. Learn observability, metrics, logs, traces, anomaly detection, event correlation, alert fatigue reduction, predictive maintenance, auto-remediation, self-healing infrastructure, and local VirtualBox labs using open-source tools.",
       },
       { name: "author", content: "Jeevi Academy" },
-      { property: "og:title", content: "AIOps Course | Hands-On Artificial Intelligence for IT Operations Training" },
+      {
+        property: "og:title",
+        content: "AIOps Course | Hands-On Artificial Intelligence for IT Operations Training",
+      },
       {
         property: "og:description",
         content:
@@ -96,6 +99,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
+      { rel: "icon", href: "/favicon.ico?v=2", type: "image/svg+xml" },
       { rel: "stylesheet", href: appCss },
       {
         rel: "stylesheet",
