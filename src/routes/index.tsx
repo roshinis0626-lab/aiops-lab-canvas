@@ -13,11 +13,11 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "AIOps Course | Hands-On Artificial Intelligence for IT Operations Training" },
+      { title: "AIOps Training Course: Master AI for IT Operations-title" },
       {
         name: "description",
         content:
-          "Hands-on AIOps Course by Jeevi Academy. Master observability, anomaly detection, event correlation, predictive maintenance, auto-remediation & self-healing infrastructure with local VirtualBox labs.",
+          "Master AIOps with Jeevi Academy. Gain hands-on experience in observability, logs, traces, alert management, and self-healing infrastructure",
       },
       {
         property: "og:title",
@@ -569,6 +569,7 @@ function AIOpsLanding() {
       <main>
         <Hero />
         <TrustBar />
+        <ChennaiSection />
         <PainSection />
         <LifecycleSection />
         <CareerSection />
@@ -693,7 +694,7 @@ function Hero() {
             New Batch · Vendor-Neutral · Local Labs
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05]">
-            AIOps Course with <span className="text-gradient-orange">Hands-On VirtualBox Labs</span>
+            Best AIOps Training in Chennai – <span className="text-gradient-orange">Build a Future-Ready IT Career</span>
           </h1>
           <p className="mt-6 text-base md:text-lg text-muted-foreground max-w-xl">
             Learn Artificial Intelligence for IT Operations through practical labs covering
@@ -872,6 +873,28 @@ function TrustBar() {
   );
 }
 
+function ChennaiSection() {
+  return (
+    <section className="max-w-7xl mx-auto px-4 lg:px-8 py-20">
+      <SectionHeading
+        eyebrow="Why Chennai"
+        title="Why Learn AIOps in Chennai?"
+        subtitle="Chennai is a growing IT hub with strong demand for automation, observability and AI operations skills. Learn locally with practical labs, mentor support and career-focused outcomes."
+      />
+      <div className="mt-10 grid gap-4 text-sm text-muted-foreground">
+        <p>
+          Jeevi Academy’s AIOps training in Chennai blends hands-on VirtualBox lab practice with industry-relevant concepts so learners can build real operational skills.
+        </p>
+        <ul className="list-disc list-inside space-y-2">
+          <li>Local mentorship and classroom-style support for Chennai learners.</li>
+          <li>Practice AIOps workflows with open-source tools and local VMs.</li>
+          <li>Focus on job-ready skills for DevOps, SRE and IT operations roles.</li>
+        </ul>
+      </div>
+    </section>
+  );
+}
+
 function SectionHeading({
   eyebrow,
   title,
@@ -899,7 +922,7 @@ function PainSection() {
     <section className="max-w-7xl mx-auto px-4 lg:px-8 py-20">
       <SectionHeading
         eyebrow="The Problem"
-        title="Modern IT Operations Are Becoming Too Noisy and Reactive"
+        title="What is AIOps and Why is it Important?"
         subtitle="This AIOps course teaches how to collect clean operational signals, detect anomalies, correlate events, predict failures, and automate safe remediation using local open-source labs."
       />
       <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -947,7 +970,7 @@ function LifecycleSection() {
 function CareerSection() {
   return (
     <section id="outcomes" className="max-w-7xl mx-auto px-4 lg:px-8 py-20">
-      <SectionHeading eyebrow="Career Outcomes" title="Career Paths This Course Supports" />
+      <SectionHeading eyebrow="Career Outcomes" title="Career Opportunities After AIOps Training" />
       <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {careers.map((c) => (
           <div key={c.t} className="glass-card p-5 hover:border-primary/40 transition group">
@@ -973,7 +996,7 @@ function OverviewHighlights() {
         <div className="lg:col-span-2">
           <SectionHeading
             eyebrow="Why Jeevi Academy"
-            title="Why Choose Jeevi Academy's AIOps Training?"
+            title="Why Choose Jeevi Academy for AIOps Training?"
           />
           <p className="mt-5 text-muted-foreground text-sm leading-relaxed">
             Jeevi Academy's AIOps Course is designed for learners who want practical, vendor-neutral
@@ -1014,7 +1037,7 @@ function LabSection() {
     <section id="lab" className="max-w-7xl mx-auto px-4 lg:px-8 py-20">
       <SectionHeading
         eyebrow="Lab Environment"
-        title="100% Local VirtualBox Lab Environment"
+        title="Hands-On AIOps Labs with VirtualBox"
         subtitle="Build and break a complete AIOps environment on your own laptop using open-source tools."
       />
       <div className="mt-10 grid lg:grid-cols-3 gap-6">
@@ -1071,7 +1094,7 @@ function ToolsSection() {
   return (
     <section id="tools" className="bg-secondary/30 border-y border-border">
       <div className="max-w-7xl mx-auto px-4 lg:px-8 py-20">
-        <SectionHeading eyebrow="Toolchain" title="Open-Source Tools You Will Practice" />
+        <SectionHeading eyebrow="Toolchain" title="AIOps Tools and Technologies Covered" />
         <div className="mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
           {tools.map((t) => (
             <div
@@ -1095,7 +1118,7 @@ function Assessment() {
           <div>
             <SectionHeading
               eyebrow="Free 60-Second Quiz"
-              title="Not Sure If AIOps Is Right for You?"
+              title="Key Benefits of AIOps Training"
             />
             <ol className="mt-6 space-y-3 text-sm text-muted-foreground">
               <li>
@@ -1229,7 +1252,7 @@ function CapstoneSection() {
     <section id="capstone" className="max-w-7xl mx-auto px-4 lg:px-8 py-20">
       <SectionHeading
         eyebrow="Capstone"
-        title="Final Capstone Project: Build a Local AIOps Platform"
+        title="Real-World AIOps Projects"
         subtitle="Students must build a complete local AIOps workflow inside VirtualBox using Ubuntu VMs — combining observability, ML, automation and LLM-assisted incident response."
       />
       <div className="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -1367,7 +1390,7 @@ function MentorPlacement() {
         <div>
           <SectionHeading
             eyebrow="Career Support"
-            title="Placement Assistance and Career Support"
+            title="AIOps Certification and Placement Support"
           />
           <div className="mt-8 grid sm:grid-cols-2 gap-3">
             {placement.map((p) => (
@@ -1440,7 +1463,7 @@ function FAQSection() {
   return (
     <section id="faq" className="bg-secondary/30 border-y border-border">
       <div className="max-w-4xl mx-auto px-4 lg:px-8 py-20">
-        <SectionHeading eyebrow="FAQ" title="Frequently Asked Questions" />
+        <SectionHeading eyebrow="FAQ" title="Who Can Join This AIOps Course?" />
         <div className="mt-10 space-y-2">
           {faqs.map((f, i) => {
             const isOpen = open === i;

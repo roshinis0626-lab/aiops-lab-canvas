@@ -78,11 +78,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "theme-color", content: "#070A12" },
-      { title: "AIOps Course | Hands-On Artificial Intelligence for IT Operations Training" },
+      { title: "AIOps Training Course: Master AI for IT Operations-title" },
       {
         name: "description",
         content:
-          "Join Jeevi Academy's hands-on AIOps Course. Learn observability, metrics, logs, traces, anomaly detection, event correlation, alert fatigue reduction, predictive maintenance, auto-remediation, self-healing infrastructure, and local VirtualBox labs using open-source tools.",
+          "Master AIOps with Jeevi Academy. Gain hands-on experience in observability, logs, traces, alert management, and self-healing infrastructure",
       },
       { name: "author", content: "Jeevi Academy" },
       {
